@@ -47,7 +47,7 @@ Store selection is CLI flag, then nonempty `ORION_HANDOFF_STORE`; otherwise usag
 | `record --input -` | Read one bounded JSON input object from stdin. Validate fully, enforce predecessor, generate ID/time and commit one record. Return ID, task key and SHA-256 of committed bytes. Only `-` is supported in v0.1; caller opens files explicitly. | Selected initialized store only. |
 | `show RECORD_ID` | Exact full ID only. Return that record and computed metadata; inspect historical records without making them current. No prefix, path or topic lookup. | None. |
 | `list [--task TASK_KEY] [--limit N]` | Return record summaries ordered by generated creation time then ID descending; default 20, range 1–50. Include `current` for each task, `returned`, `matching_total`, `truncated`. | None. |
-| `pickup [--task TASK_KEY | --project PROJECT_KEY --resume] [--max-age-seconds N]` | Select current task context. Default age limit 86,400; integer range 1–2,592,000. Exact task or explicit project-resume intent only. | None. |
+| `pickup [--task TASK_KEY \| --project PROJECT_KEY --resume] [--max-age-seconds N]` | Select current task context. Default age limit 86,400; integer range 1–2,592,000. Exact task or explicit project-resume intent only. | None. |
 
 `pickup` without selectors returns provisional `no_task_context`, reading no records. Project selection without `--resume`, mutually exclusive selectors, unknown flags and invalid limits are usage errors. There is no prompt parsing, session environment inference or global “latest task” fallback.
 
