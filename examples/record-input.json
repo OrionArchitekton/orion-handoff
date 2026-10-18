@@ -1,0 +1,32 @@
+{
+  "record_version": 1,
+  "task_key": "sample-task-alpha",
+  "predecessor": null,
+  "project_key": "sample-project",
+  "title": "Inspect the sample report",
+  "status": "active",
+  "actor": "sample-producer",
+  "request_id": "sample-request-1",
+  "context_as_of": "2026-10-17T23:00:00Z",
+  "last_observed_outcome": "The synthetic report contained the expected heading.",
+  "unfinished_step": "Review the report against the current request.",
+  "recorded_next_step": "Read the current request and obtain any authority needed for further work.",
+  "remaining_authority": "This record grants no authority.",
+  "acceptance_claims": [
+    {
+      "baseline": "sample-baseline-1",
+      "reference": "sample://review/1",
+      "accepted_at": "2026-10-17T22:59:00Z"
+    }
+  ],
+  "evidence": [
+    {
+      "source": "synthetic-demo",
+      "artifact": "sample-report-1",
+      "observed_at": "2026-10-17T23:00:00Z",
+      "scope": "The heading was visible; no broader behavior was tested.",
+      "reference": "sample://report/1"
+    }
+  ],
+  "body": "Synthetic context for a private example. Recheck the current task before taking action."
+}
