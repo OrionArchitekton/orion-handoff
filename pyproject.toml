@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orion-handoff"
+version = "0.1.0"
+description = "Carry bounded, unverified task context between local sessions"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+authors = [{name = "Dan Mercede"}]
+license = "MIT"
+
+[project.scripts]
+orion-handoff = "orion_handoff.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100

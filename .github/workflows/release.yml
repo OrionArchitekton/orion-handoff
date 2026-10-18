@@ -1,0 +1,39 @@
+name: release
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pypi-release
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Download and verify source-pinned release bytes
+        run: |
+          mkdir dist
+          curl --fail --silent --show-error --location --retry 3 -o dist/orion_handoff-0.1.0-py3-none-any.whl https://github.com/OrionArchitekton/orion-handoff/releases/download/v0.1.0/orion_handoff-0.1.0-py3-none-any.whl
+          echo "e1f3e1e43839cfd2896cfc553bef9366867c1cf50bce1e4d4762cdbec9977e41  dist/orion_handoff-0.1.0-py3-none-any.whl" | sha256sum --check --strict -
+          curl --fail --silent --show-error --location --retry 3 -o dist/orion_handoff-0.1.0.tar.gz https://github.com/OrionArchitekton/orion-handoff/releases/download/v0.1.0/orion_handoff-0.1.0.tar.gz
+          echo "89491b945a73ec3b210ad10c906980fda6904abba29fc8fd3c51519acf5cd099  dist/orion_handoff-0.1.0.tar.gz" | sha256sum --check --strict -
+  publish:
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: pypi
+      url: https://pypi.org/p/orion-handoff
+    permissions:
+      id-token: write
+    steps:
+      - name: Download and verify the identical bytes without rebuilding
+        run: |
+          mkdir dist
+          curl --fail --silent --show-error --location --retry 3 -o dist/orion_handoff-0.1.0-py3-none-any.whl https://github.com/OrionArchitekton/orion-handoff/releases/download/v0.1.0/orion_handoff-0.1.0-py3-none-any.whl
+          echo "e1f3e1e43839cfd2896cfc553bef9366867c1cf50bce1e4d4762cdbec9977e41  dist/orion_handoff-0.1.0-py3-none-any.whl" | sha256sum --check --strict -
+          curl --fail --silent --show-error --location --retry 3 -o dist/orion_handoff-0.1.0.tar.gz https://github.com/OrionArchitekton/orion-handoff/releases/download/v0.1.0/orion_handoff-0.1.0.tar.gz
+          echo "89491b945a73ec3b210ad10c906980fda6904abba29fc8fd3c51519acf5cd099  dist/orion_handoff-0.1.0.tar.gz" | sha256sum --check --strict -
+      - uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
