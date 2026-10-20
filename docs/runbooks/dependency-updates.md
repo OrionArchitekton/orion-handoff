@@ -3,8 +3,8 @@ verified: 2026-10-19
 review_after: 2027-01-19
 topics: [dependencies, ci]
 references:
-  - .github/dependabot.yml
-  - .github/workflows/ci.yml
+  - ../../.github/dependabot.yml
+  - ../../.github/workflows/ci.yml
 ---
 
 # Dependency updates
