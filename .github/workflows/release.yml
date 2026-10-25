@@ -36,4 +36,4 @@ jobs:
           echo "e1f3e1e43839cfd2896cfc553bef9366867c1cf50bce1e4d4762cdbec9977e41  dist/orion_handoff-0.1.0-py3-none-any.whl" | sha256sum --check --strict -
           curl --fail --silent --show-error --location --retry 3 -o dist/orion_handoff-0.1.0.tar.gz https://github.com/OrionArchitekton/orion-handoff/releases/download/v0.1.0/orion_handoff-0.1.0.tar.gz
           echo "6e8e090121dd0daadff518be686e39440e1be572ef62ae8eca2df1ffc2b67261  dist/orion_handoff-0.1.0.tar.gz" | sha256sum --check --strict -
-      - uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
+      - uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # v1.14.3
