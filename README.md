@@ -1,5 +1,7 @@
 # Orion Handoff
 
+Part of [Cosmocrat OS](https://www.cosmocrat.ai/tools#orion-handoff).
+
 Carry bounded task context between local sessions. A producer records what it observed; another session selects the intended task and reviews what remains uncertain. Handoff data never grants permission to execute the next step.
 
 **Version 0.1.0. MIT licensed.** The installed CLI is the supported interface; internal Python imports are not a public API.
