@@ -73,6 +73,6 @@ Read the [operator runbook](docs/runbooks/local-handoff-store.md) for stopped-wr
 - [Security scope](SECURITY.md)
 - [Contribution and test instructions](CONTRIBUTING.md)
 
-The core has no runtime dependencies outside the Python standard library. PM, browser, phone, Remote Hands and vendor harness integrations are separate packages. An optional future starter profile needs exact component pins and its own combined proof. Releasing this package does not migrate an installed estate.
+The core has no runtime dependencies outside the Python standard library. PM, browser, phone, Remote Hands and vendor harness integrations are separate packages. The optional [Starter development-evidence preview, 0.3.0-rc.1](https://github.com/OrionArchitekton/orion-starter/releases/tag/v0.3.0-rc.1), pins PM, Handoff, Results and Worktree Report for a manually invoked synthetic workflow. Follow its exact environment and validation scope. Releasing this package does not migrate an installed estate.
 
 MIT. Copyright 2026 Dan Mercede.
